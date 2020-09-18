@@ -25,17 +25,24 @@ public class WhoAmIService {
 
     static final ILogger logger = SLoggerFactory.getLogger(WhoAmIService.class);
 
-    @Autowired
+    //@Autowired
     CompanyClient companyClient;
 
-    @Autowired
+    //@Autowired
     AccountClient accountClient;
 
-    @Autowired
+    //@Autowired
     SentryClient sentryClient;
 
-    @Autowired
+    //@Autowired
     AppProps appProps;
+
+    public WhoAmIService(CompanyClient companyClient, AccountClient accountClient, SentryClient sentryClient, AppProps appProps) {
+        this.companyClient = companyClient;
+        this.accountClient = accountClient;
+        this.sentryClient = sentryClient;
+        this.appProps = appProps;
+    }
 
     public IAmDto findWhoIAm(String userId) {
         IAmDto iAmDto = IAmDto.builder()
